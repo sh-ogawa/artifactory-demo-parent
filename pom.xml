@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>jp.sh4.ooga</groupId>
+    <artifactId>artifactory-demo-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <artifactoryIPAddress>localhost</artifactoryIPAddress>
+        <artifactoryPort>48081</artifactoryPort>
+    </properties>
+    
+    <repositories>
+        <repository>
+            <id>libs-release-local</id>
+            <url>http://${artifactoryIPAddress}:${artifactoryPort}/artifactory/libs-release-local</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>libs-snapshot-local</id>
+            <url>http://${artifactoryIPAddress}:${artifactoryPort}/artifactory/libs-snapshot-local</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>libs-release</id>
+            <url>http://${artifactoryIPAddress}:${artifactoryPort}/artifactory/libs-release</url>
+        </repository>
+        <repository>
+            <id>libs-snapshot</id>
+            <url>http://${artifactoryIPAddress}:${artifactoryPort}/artifactory/libs-snapshot</url>
+        </repository>
+    </repositories>
+    
+    <distributionManagement>
+        <repository>
+            <id>libs-release-local</id>
+            <url>http://${artifactoryIPAddress}:${artifactoryPort}/artifactory/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>libs-snapshot-local</id>
+            <url>http://${artifactoryIPAddress}:${artifactoryPort}/artifactory/libs-snapshot-local</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
+    
+</project>
